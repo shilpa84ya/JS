@@ -28,3 +28,25 @@ console.log(stringValue)
 console.log(typeof stringValue)
 
 // 33 => "33"
+
+
+
+
+// ***********************************************OPERATIONS*****************************************************
+
+let value = 3
+let negValue = -value
+console.log(negValue)
+
+let str1 = "Hello"
+let str2 = " Shilpa"
+let str = str1 + str2
+console.log(str)
+
+
+console.log("1" + 2)
+console.log(1 + "2")
+console.log("1" + 2 + 2)
+
+console.log(+true)
+console.log(+"")
