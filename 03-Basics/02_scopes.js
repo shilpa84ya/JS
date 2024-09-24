@@ -9,5 +9,17 @@ if(true){
 }
 // console.log("a: ",a) // we'll get an error as a is defined inside if() block
 //console.log("b :",b) // we'll get an error as b is defined inside if() block
-console.log("c: ",c) // 300
- 
+// console.log("c: ",c) // 300
+
+
+
+
+addOne(5)
+function addOne(num){
+    return num+1
+
+}
+addTwo(5) // Cannot access 'addTwo' before initialization (Called Hoisting)
+const addTwo = function(num){
+    return num +2
+}
