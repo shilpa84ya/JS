@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <style>
+        #grey{
+            height: 100px;
+            width: 100px;
+            background-color: gray;
+            border: solid;
+            border-color: black;
+            margin: 5px;
+        }
+        #purple{
+            height: 100px;
+            width: 100px;
+           background-color: purple;
+            border-style:solid ;
+            border-color: black;
+            position:relative;
+            left:110px;
+            bottom: 108px;
+            margin: 5px;
+        }
+        #blue{
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+            border: solid;
+            border-color: black;
+            position: relative;
+            left: 220px;
+            bottom: 216px;
+            margin: 5px;
+
+        }
+        #yellow{
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            border: solid;
+            border-color: black;
+            position: relative;
+            left: 330px;
+            bottom: 323px;
+            margin: 5px;
+
+         }/*@media (max-width: 768px) { */
+    /* .div {
+        width: 100px;
+        padding: 10px;
+    }
+    .content {
+        float: none;
+        width: 100%;
+    } */
+
+    #grey:hover {
+            background-color: darkgray;
+        }
+        #purple:hover {
+            background-color: rgb(234, 146, 234);
+        }
+        #blue:hover {
+            background-color: lightblue;
+        }
+        #yellow:hover {
+            background-color: lightyellow;
+        }
+
+    </style>
+</head>
+
+<body class="container">
+    <div id="grey"></div>
+         
+    <div id="purple"></div>
+    <div id="blue"></div>
+    <div id="yellow"></div>
+
+</body>
+<script>
+    const buttons = document.querySelectorAll("div")
+    console.log(buttons)
+    const body = document.querySelector("body")
+    buttons.forEach( function(button) {
+        button.addEventListener("click",function(e){
+            const clickedColor = e.target.id
+            if(clickedColor === 'grey'){
+                body.style.backgroundColor = clickedColor
+            }
+            if(clickedColor === 'purple'){
+                body.style.backgroundColor = clickedColor //e.target.id
+            }
+            if(clickedColor === 'blue'){
+                body.style.backgroundColor =clickedColor
+            }
+            if(clickedColor === 'yellow'){
+                body.style.backgroundColor = clickedColor
+            }
+
+        });
+    });
+</script>
+</html>
