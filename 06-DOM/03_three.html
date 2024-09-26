@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li> JavaScript</li>
+    </ul>
+    
+</body>
+<script>
+    // This function is not optimized as it traverse the whole tree for each element to append
+    function addlanguage(langName){
+        const li = document.createElement("li")  // Create a element first
+        li.innerHTML = `${langName}`  // assign content to the element
+        document.querySelector(".language").appendChild(li)  // select the class in which you want to add the element, and then append the element to it
+    }
+    addlanguage("Spring Boot")  // adding n ew language to the list
+
+    // Optimized function using some Data structures
+    function addOptiLanguage(langName){
+        const li = document.createElement("li")
+        const addText = document.createTextNode(langName)
+        li.appendChild(addText)
+        // li.appendChild(document.createTextNode(langName))
+        document.querySelector(".language").appendChild(li)
+    }
+    addOptiLanguage("React")
+    addOptiLanguage("CPP")
+
+    // Editing the existing elements
+    const secondLang = document.querySelector("li:nth-child(2)")  // choosing the second node of the list and taking the reference of already existing element
+    console.log(secondLang);
+
+    const newLi = document.createElement("li")  // creating a new element 
+    newLi.textContent = "Java"  // will replace the value of second list item with java
+
+    secondLang.replaceWith(newLi)  // replacing the value
+
+
+    // Replace javascript with TypeScript
+
+    const firstLang = document.querySelector("li:first-child")
+    console.log(firstLang)
+
+    const secondNewLi = document.createElement("li");
+    secondNewLi.textContent = "TypeScript"
+
+    firstLang.replaceWith(secondNewLi)
+
+    // 3. Method to repalce
+
+    const thirdLang = document.querySelector("li:nth-child(3)")
+    thirdLang.outerHTML = "<li>NodeJS</li>"
+
+
+    // Removing the elements
+    const lastLang = document.querySelector("li:last-child")
+    lastLang.remove()
+
+</script>
+</html>
