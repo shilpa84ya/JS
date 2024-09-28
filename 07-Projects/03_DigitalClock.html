@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        #box{
+            /* height: 700px;
+            width: 600px; */
+            background-color: #212121;
+            margin-left: 400px;
+        }
+        #clock{
+            border-radius: 10%;
+            background-color: rgb(255, 183, 0);
+            color: aliceblue;
+            font-size: 40px;
+            padding:20px ;
+            margin-top: 10px;
+
+
+        }
+        .center{
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .banner{
+            color: white;
+        }
+    </style>
+</head>
+<body id="box">
+    <div class="center">
+        <div class="banner">Your local time</div>
+        <div id="clock"></div>
+    </div>
+    
+</body>
+<script>
+    const clock = document.querySelector('#clock');
+    // another method to get the clock
+    // const clock = document.getElementById('clock');
+
+    
+    // console.log(date.toLocaleTimeString())
+
+    setInterval( function(){
+        const date = new Date()
+        clock.innerHTML = date.toLocaleTimeString()
+    }, 1000) //1000 is the milisecond (1 sec)
+</script>
+</html>
