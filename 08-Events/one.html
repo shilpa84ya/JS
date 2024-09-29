@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: white;">
+    <h3>Amazing Images
+    </h3>
+    <ul id="images">
+        <li><img src="https://images.pexels.com/photos/1170686/pexels-photo-1170686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+            height="100px" width="200px" id="japan" alt=""></li>
+        <li><img src="https://images.pexels.com/photos/2640604/pexels-photo-2640604.jpeg?auto=compress&cs=tinysrgb&w=800" 
+           height="100px" width="200px" 
+          id="photoshop" alt=""></li>   
+           
+         <li><img src="https://images.pexels.com/photos/38632/dog-race-fun-animal-38632.jpeg?auto=compress&cs=tinysrgb&w=800"
+            height="100px" width="200px" id="river" alt=""></li>  
+
+         <li><img src="https://images.pexels.com/photos/2683946/pexels-photo-2683946.jpeg?auto=compress&cs=tinysrgb&w=800" 
+            height="100px" width="200px" id="owl" alt=""></li>   
+
+         <li><img src="https://images.pexels.com/photos/1787242/pexels-photo-1787242.jpeg?auto=compress&cs=tinysrgb&w=800"
+            height="100px" width="200px" id ="prayer"alt=""></li> 
+            
+         <li><a style="color: white;" href="https://www.google.com/" id="google">Google</a></li>   
+    </ul>
+</body>
+<script>
+
+    //Events to learn
+    // type, timestamps, defaultPrevent
+    // target, toElement, srcElement, currentTarget
+    //clientX, clientY, screenX, screenY
+    // altKey, ctrlKey, shiftKey, keyCode
+
+    //   document.getElementById("owl").onclick = function() {  
+    //     alert("owl clicked")
+        
+    //  } 
+    // 2. One method to add events 
+ // best way to add event 
+    // document.getElementById("images").addEventListener("click", function(e){
+    //     console.log("inside the ul is clicked") 
+    //    }, false) //Bubbling propogation
+
+
+    // document.getElementById("owl").addEventListener("click", function(e){
+    //     console.log('owl is clicked') 
+    //     e.stopPropagation() // will not bubble to the outer event
+    //    }, false) //this true is known as "Event Propogation"
+
+
+    //    /* 
+    //    this is of two type:
+    //        1. True: Event propogation capturing
+    //        2. False: Event propogation Bubbling
+
+    //        capturing(true): if a event is occure which is inside the another event then first outer event will be executed
+    //                       and then only the exact event which is propogated will be executed in last like srink.
+                          
+    //        Bubbling(False) :  (BY DEFAULT)   : if a event is clicked then first that event will be propogated
+    //                      and then only the outer event will propogate like bubble .
+    //                      To prevent the bubbling so taht only the current event to propogate we can use 
+    //                      e.stopPropogation()       
+    //    */
+
+    
+
+    //    document.getElementById("google").addEventListener("click", function(e){
+    //          console.log("Google is clicked")
+    //          e.stopPropagation();
+    //          e.preventDefault();
+    //    }, false)
+  
+    
+     //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ PRACTICE $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+     // when we click on the images of list that image list should be removed with bullet point
+
+     document.querySelector("#images").addEventListener('click', function(e){
+        console.log(e.target.parentNode)
+        console.log(e.target.tagName)
+
+        if(e.target.tagName === 'IMG'){
+            let removeIt = e.target.parentNode;
+            removeIt.remove();  // 1. method tio remove it
+
+        }
+        // removeIt.parentNode.removeChild(removeIt); // 2. method
+
+     })
+
+
+</script>
+</html>
