@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Learning JavaScript</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    //1. setTimeout : it will do the work defined inside the function after given time in this case it is 2 sec.
+    // setTimeout(function(){ // here instead of defining the function we can also pass the reference of function.
+    //     console.log("Shilpa");
+    // },2000) ;
+
+    const sayName = function(){
+        console.log("Shilpa");
+    }
+
+    // this function will change the text written on the page after 2 sec
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "Best JS Series";
+        console.log("Text is changed"); 
+        
+    }
+    const changeMe = setTimeout(changeText,2000) // calling the setTimeout
+    setTimeout(sayName,2000)
+
+    // to prevent the setTimeout event from happen : using button
+    document.querySelector('#stop').addEventListener('click',function(){
+           clearTimeout(changeMe);
+           console.log("STOPPED"); 
+    })
+
+
+</script>
+</html>
