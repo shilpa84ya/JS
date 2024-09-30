@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #424244; color: white;">
+   <ul>
+    <h3>Value	State	Description</h3>
+    <li>0	UNSENT	Client has been created. open() not called yet.</li>
+    <li>1	OPENED	open() has been called.</li>
+    <li>2	HEADERS_RECEIVED	send() has been called, and headers and status are available.</li>
+    <li>3	LOADING	Downloading; responseText holds partial data.</li>
+    <li>4	DONE	The operation is complete.</li>
+   </ul>
+    
+
+
+
+
+
+</body>
+<script>
+    const button = document.createElement("button");
+    button.innerHTML = "Info";
+    button.style.marginLeft = "100px"
+    document.body.appendChild(button);
+
+    const xhr = new XMLHttpRequest();
+    const requestUrl = "https://api.github.com/users/hiteshchoudhary";
+    xhr.open("GET", requestUrl);
+    let followers;
+    let image;
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4){
+            let data = this.responseText; // the response returned by the request is a string type.
+            // to access the attributes value of the api aor response convert it into an object.
+
+            data = JSON.parse(data)
+            followers = data.followers;
+            image = data.avatar_url;
+            console.log(typeof image)
+            console.log(this.responseText) 
+            console.log(data.followers) // now i can aacess the attributes values by dot(.) operator
+            button.addEventListener("click", maketheCard);
+            
+
+        }
+    }
+    xhr.send()
+    console.log(xhr.readyState)
+
+
+// ######################### Toggling information Project #####################################
+
+
+    let isVisible = true;
+    let card;
+
+    const maketheCard = function(){
+        if(isVisible){
+            showInfo();
+            
+        }
+        else{
+            hideInfo();
+
+        }
+        isVisible = !isVisible
+            
+    }
+
+    const showInfo = function(){
+         // make a card on page giving the photo and the followers of the returned response using jS only
+          card = document.createElement("div");
+        // card.style.height = "400px";
+        // card.style.width = "400px";
+        card.style.display = "flex";
+        card.style.flexDirection = "column"
+        card.style.alignItems = "center";
+        card.style.backgroundColor = "red";
+
+        const img = document.createElement("img");
+        img.src = image;
+        img.height = 200;
+        img.width = 200;
+
+        const para = document.createElement("p");
+        para.innerHTML = `Followers : ${followers}`;
+
+
+        card.appendChild(img)
+        card.appendChild(para)
+        document.body.appendChild(card);
+    }
+
+    const hideInfo = function(){
+        if(card){
+            document.body.removeChild(card);
+        }
+    }
+   
+
+
+    
+
+</script>
+</html>
